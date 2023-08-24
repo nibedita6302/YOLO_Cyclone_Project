@@ -1,42 +1,58 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.file_input_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input_container {
+  width: 500px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  border: 4px dashed #25286a;
+  border-radius: 35px;
+  transition: all 0.3s ease-in-out;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.input_container > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input_container:hover {
+  background-color: #d0e2f5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.data_image{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.data_image_container {
+  width: 300px;
+  height: 300px !important;
+  border-radius: 5px;
+  background-color: transparent !important;
+  border: 2px solid #25286a;
+  display: flex;
+  justify-content: center;
 }

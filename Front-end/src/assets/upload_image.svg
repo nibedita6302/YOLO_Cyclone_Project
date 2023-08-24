@@ -1,0 +1,13 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg fill="#25286a" width="167px" height="167px" viewBox="0 0 24 24" id="upload-double-arrow" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color" stroke="#25286a" transform="rotate(0)">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#c7bce6" stroke-width="2.592">
+<path id="secondary" d="M8.29,10.71a1,1,0,0,1,0-1.42l3-3a1,1,0,0,1,1.42,0l3,3a1,1,0,0,1,0,1.42,1,1,0,0,1-1.42,0L12,8.41l-2.29,2.3A1,1,0,0,1,8.29,10.71Zm4.42.58a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42L11,14.41V21a1,1,0,0,0,2,0V14.41l1.29,1.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z" style="fill: #095f6c;"/>
+<path id="primary" d="M20,15H19a1,1,0,0,1,0-2h1V4H4v9H5a1,1,0,0,1,0,2H4a2,2,0,0,1-2-2V4A2,2,0,0,1,4,2H20a2,2,0,0,1,2,2v9A2,2,0,0,1,20,15Z" style="fill: #25286a;"/>
+</g>
+<g id="SVGRepo_iconCarrier">
+<path id="secondary" d="M8.29,10.71a1,1,0,0,1,0-1.42l3-3a1,1,0,0,1,1.42,0l3,3a1,1,0,0,1,0,1.42,1,1,0,0,1-1.42,0L12,8.41l-2.29,2.3A1,1,0,0,1,8.29,10.71Zm4.42.58a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42L11,14.41V21a1,1,0,0,0,2,0V14.41l1.29,1.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z" style="fill: #095f6c;"/>
+<path id="primary" d="M20,15H19a1,1,0,0,1,0-2h1V4H4v9H5a1,1,0,0,1,0,2H4a2,2,0,0,1-2-2V4A2,2,0,0,1,4,2H20a2,2,0,0,1,2,2v9A2,2,0,0,1,20,15Z" style="fill: #25286a;"/>
+</g>
+</svg>
