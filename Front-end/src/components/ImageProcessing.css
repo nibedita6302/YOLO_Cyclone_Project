@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    width: 50px;
+    padding: -1px;
+    border-radius: 100%;
+    border: 2px solid #25286a;
+}
+
+.lines {
+    height: 2px;
+    width: 20%;
+    background-color: #25286a;
+}
+
+.image_spinner {
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    border: 2px solid #25286a;
+}
+
+.translate {
+    animation: move 0.6s linear;
+}
+
+
+
+.yes {
+    opacity: 0;
+    animation: comeforth 1s linear;
+    animation-delay: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes comeforth {
+    0% {
+        opacity: 0;
+    }
+    100% {
+       opacity: 1;
+    }
+    
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(1000px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
