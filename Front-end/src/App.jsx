@@ -14,19 +14,27 @@ function App() {
   const [text, setText] = useState(1);
   const needTranslate = useRef(false);
 
-
   const getImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
   };
 
-  const secondCall = useCallback(() => {
-    const data = [[1,0.02], [2, 0.01], [3, 0.8], [4, 0.1], [5, 0.02], [6, 0.01], [7, 0.01], [8, 0.02]];
+  const secondCall = useCallback(async () => {
+    const data = [
+      [1, 0.02],
+      [2, 0.01],
+      [3, 0.8],
+      [4, 0.1],
+      [5, 0.02],
+      [6, 0.01],
+      [7, 0.01],
+      [8, 0.02],
+    ];
     const formData = new FormData();
     formData.append("image", outputImage);
     setNeedCall(false);
     setEstimateVal(data);
-  },[outputImage])
+  }, [outputImage]);
 
   const uploadImage = () => {
     if (!image) {
@@ -34,16 +42,14 @@ function App() {
       return;
     }
     const formData = new FormData();
-    formData.append(
-      "image",
-      "some-image-link"
-    );
+    formData.append("image", image);
     setIsUploaded(true);
     setText(2);
     axios
-      .post("http://localhost:8000/do-something", formData)
-      .then((res) => {
-        setOutputImage(res.data.url);
+      .post("http://127.0.0.1:8000/", formData, { responseType: "blob" })
+      .then((res) => res.data)
+      .then((blob) => {
+        setOutputImage(URL.createObjectURL(blob));
         setNeedCall(true);
       })
       .catch((err) => {
@@ -51,16 +57,15 @@ function App() {
       });
   };
 
-  useEffect(()=>{
-    console.log(outputImage);
-    if(outputImage && needCall){
-      setTimeout(()=>{
+  useEffect(() => {
+    if (outputImage && needCall) {
+      setTimeout(() => {
         needTranslate.current = true;
         setText(3);
         secondCall();
-      }, 1000)
+      }, 1000);
     }
-  },[outputImage, needCall, secondCall])
+  }, [outputImage, needCall, secondCall]);
 
   return (
     <div className="App">
@@ -83,13 +88,15 @@ function App() {
 
           <button onClick={uploadImage}>Upload</button>
         </div>
-      ) : (
-        estimateVal.length <= 0 ? <ImageProcessing
+      ) : estimateVal.length <= 0 ? (
+        <ImageProcessing
           className=""
           inputImage={image}
           outputImage={outputImage}
           needTranslate={needTranslate.current}
-        /> : <EstimationDisplay data={estimateVal} outputImage={outputImage}/>
+        />
+      ) : (
+        <EstimationDisplay data={estimateVal} outputImage={outputImage} />
       )}
     </div>
   );

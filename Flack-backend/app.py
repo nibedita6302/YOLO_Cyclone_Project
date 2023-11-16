@@ -1,5 +1,5 @@
 import shutil
-from flask import Flask, flash, request, redirect, url_for, render_template
+from flask import Flask, flash, request, redirect, url_for, render_template, send_file
 import numpy as np
 import pandas as pd
 import glob
@@ -34,13 +34,13 @@ def allowed_file(filename):
 
 @app.route('/', methods=['POST'])
 def upload_image():
-    if 'file' not in request.files:
+    if 'image' not in request.files:
         return {
             "status": "error",
             "status_code": 0,
             "message": "Upload an image first"
         }
-    file = request.files['file']
+    file = request.files['image']
     if file.filename == '':
         flash('No image selected for uploading')
         return {
@@ -68,14 +68,7 @@ def upload_image():
         img = os.listdir(latest_file)
         filepath = lastOne + "/" + img[0]
 
-        return {
-            "status": "success",
-            "status_code": 1,
-            "message": "Image uploaded successfully",
-            "data": {
-                "image": filepath
-            }
-        }
+        return send_file("D:/coding/Final-Year-Project/Flack-backend/static/" + lastOne + "/crops/Cyclone/"+img[0].split('.')[0]+".jpg", mimetype='image/jpeg')
     else:
         return {
             "status": "error",
