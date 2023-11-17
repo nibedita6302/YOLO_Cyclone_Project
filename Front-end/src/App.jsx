@@ -13,6 +13,7 @@ function App() {
   const [needCall, setNeedCall] = useState(false);
   const [text, setText] = useState(1);
   const needTranslate = useRef(false);
+  const [result, setResult] = useState(0);
 
   const getImage = (e) => {
     const file = e.target.files[0];
@@ -20,16 +21,28 @@ function App() {
   };
 
   const secondCall = useCallback(async () => {
-    const data = [
-      [1, 0.02],
-      [2, 0.01],
-      [3, 0.8],
-      [4, 0.1],
-      [5, 0.02],
-      [6, 0.01],
-      [7, 0.01],
-      [8, 0.02],
-    ];
+    const response = await axios.get("http://127.0.0.1:8000/predict-intensity");
+    // console.log(response.data);
+
+    // const data = [
+    //   [1, 0.02],
+    //   [2, 0.01],
+    //   [3, 0.8],
+    //   [4, 0.1],
+    //   [5, 0.02],
+    //   [6, 0.01],
+    //   [7, 0.01],
+    //   [8, 0.02],
+    // ];
+    const data = response.data.prediction.map((value, index) => [
+      index + 1,
+      value,
+    ]);
+
+    setResult(response.data.result);
+
+    console.log(data);
+
     const formData = new FormData();
     formData.append("image", outputImage);
     setNeedCall(false);
@@ -71,7 +84,7 @@ function App() {
     <div className="App">
       {text === 1 && <h1>Upload Image</h1>}
       {text === 2 && <h1>Extracting Area Of Interest</h1>}
-      {text === 3 && <h1>Estimated Intensity</h1>}
+      {text === 3 && <h1>{`Estimated Intensity: T${result}`}</h1>}
       {!isUploaded ? (
         <div className="file_input_container">
           {!image ? (

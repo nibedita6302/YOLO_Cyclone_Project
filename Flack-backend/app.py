@@ -110,7 +110,8 @@ def PredictIntensity():
             "prediction": list(map(func,y_pred[0])),
             "status": "Success",
             "status_code": 1,
-            "message": "Allowed image types are - png, jpg, jpeg, gif"
+            "message": f"Prediction Result: T{int(y_pred_arg[0]+1)}",
+            "result": int(y_pred_arg[0]+1)
      }
 
 

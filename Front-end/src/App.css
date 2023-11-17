@@ -54,12 +54,14 @@
   background-color: transparent !important;
   border: 2px solid #25286a;
   display: flex;
-  margin-bottom: 30px;
   justify-content: center;
 }
 
 .estimaation_container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
+
+  gap: 20px;
 }
