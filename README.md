@@ -19,7 +19,7 @@ Follow the below steps to execute the app -
     pip install -r requirements.txt
     python app.py
    ```
-4. Now in another terminal run Node.js frontend _(navigate to ./Front-end)_
+4. Now in another terminal run React frontend _(navigate to ./Front-end)_
    ```bash
    npm run dev
    ```
